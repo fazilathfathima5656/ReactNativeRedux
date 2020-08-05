@@ -4,28 +4,28 @@ import {
   LOADING,
   ON_ERROR,
 } from '../Types/types';
-import { postDashboard, postHome } from './../controller/DashboardController';
+import {postDashboard, postHome} from './../controller/DashboardController';
 
-export const saveDashboardData = DashbaordData => {
+export const saveDashboardData = (DashbaordData) => {
   return {
     type: SAVE_Dashboard_DATA,
     data: DashbaordData,
   };
 };
-export const saveHomeData = HomeData => {
+export const saveHomeData = (HomeData) => {
   return {
     type: SAVE_Home_DATA,
     data: HomeData,
   };
 };
-export const fetchingData = loading => {
+export const fetchingData = (loading) => {
   return {
     type: LOADING,
     data: loading,
   };
 };
 
-export const onError = error => {
+export const onError = (error) => {
   return {
     type: ON_ERROR,
     data: error,
@@ -33,7 +33,7 @@ export const onError = error => {
 };
 
 export const postDashboardData = (DashbaordData, headers, callback) => {
-  return dispatch => {
+  return (dispatch) => {
     dispatch(fetchingData(true));
     postDashbaord(DashbaordData, headers, (err, response) => {
       dispatch(fetchingData(false));
@@ -48,7 +48,7 @@ export const postDashboardData = (DashbaordData, headers, callback) => {
 };
 
 export const postHomeData = (HomeData, headers, callback) => {
-  return dispatch => {
+  return (dispatch) => {
     dispatch(fetchingData(true));
     postHome(HomeData, headers, (err, response) => {
       dispatch(fetchingData(false));

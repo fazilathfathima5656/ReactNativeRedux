@@ -14,7 +14,7 @@ const initialstate = {
 
 const dashboardReducer = (state = initialstate, action) => {
   switch (action.type) {
-    case  SAVE_Dashboard_DATA:
+    case SAVE_Dashboard_DATA:
       return {
         ...state,
         error: '',

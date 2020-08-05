@@ -4,8 +4,6 @@
 
 const rootpath = 'http://firstmed.azurewebsites.net/api/GetArticles';
 
-
-
 export default {
   ...rootpath,
 };

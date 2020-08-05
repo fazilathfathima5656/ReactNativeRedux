@@ -10,8 +10,8 @@ const AppStack = createStackNavigator(
     DashboardContainer: {
       screen: DashboardContainer,
     },
-    HomeContainer:{
-      screen:HomeContainer,
+    HomeContainer: {
+      screen: HomeContainer,
     },
   },
   {

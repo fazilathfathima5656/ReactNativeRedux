@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+import {combineReducers} from 'redux';
 import dashbaordReducer from './reducers/dashboardReducer';
 const appReducer = combineReducers({
   dashbaordReducer,

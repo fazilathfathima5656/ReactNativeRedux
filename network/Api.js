@@ -1,5 +1,4 @@
 import axios from 'axios';
-import Strings from '@constants/Strings';
 
 const API = {
   requesttimeout: 20000,
@@ -7,7 +6,7 @@ const API = {
   getDefaultHeaders: () => {
     let defaultHeaders = {
       Accept: 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     };
     return defaultHeaders;
   },
@@ -34,7 +33,7 @@ const API = {
       url: routeurl,
       data: params,
       headers: headers ? headers : API.getDefaultHeaders(),
-      timeout: API.requesttimeout
+      timeout: API.requesttimeout,
     };
     API.call(config, callback);
   },
@@ -49,15 +48,15 @@ const API = {
 
   call: (config, callback) => {
     axios(config)
-      .then(response => {
+      .then((response) => {
         callback(null, response.data);
       })
-      .catch(error => {
+      .catch((error) => {
         callback(API.validateErrors(error), null);
       });
   },
 
-  validateErrors: error => {
+  validateErrors: (error) => {
     //This method is incremental improvements, in future if we want to handle
     // status code and messages every thing will go inside this method, currently
     // this is very minimal usage of this
@@ -66,17 +65,17 @@ const API = {
       return Strings.network_error;
     }
 
-    const { response } = error;
+    const {response} = error;
     if (response) {
-      const { data } = response;
-      const { message } = data;
+      const {data} = response;
+      const {message} = data;
       if (message) {
         return message;
       }
     }
 
     return error.message;
-  }
+  },
 };
 
 module.exports = API;
